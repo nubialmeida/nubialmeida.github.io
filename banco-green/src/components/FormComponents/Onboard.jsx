@@ -1,5 +1,8 @@
 import React from "react";
+import Icons from "../Icons";
+import Card from "../Card";
 import "../../styles/onboard.css";
+
 import logo from "../../assets/images/leaf.png";
 import icon1 from "../../assets/images/home.png";
 import icon2 from "../../assets/images/save-money.png";
@@ -9,8 +12,6 @@ import icon5 from "../../assets/images/card.png";
 import icon6 from "../../assets/images/help.png";
 import icon7 from "../../assets/images/user.png";
 import icon8 from "../../assets/images/search.png";
-import Icons from "../Icons";
-import Card from "../Card";
 
 export default function OnboardComponent(props) {
     return (

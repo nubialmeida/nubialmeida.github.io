@@ -4,12 +4,12 @@ import InputComponent from "../InputComponents/Input";
 import ButtonComponent from "../InputComponents/Button";
 
 export default function LoginComponents(props) {
-    const [userCpf, setUserCpf] = useState("");
+    const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(userCpf, userPassword);
+        console.log(userEmail, userPassword);
     }
 
     return (
@@ -34,22 +34,20 @@ export default function LoginComponents(props) {
             <div className="info-form">
                 <InputComponent
                     type="text"
-                    description="CPF"
-                    placeholder="000.000.000-00"
-                    value={userCpf}
-                    onChange={(e) => setUserCpf(e.target.value)}
+                    description="Email"
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}
                 />
                 <InputComponent
                     type="password"
                     description="Senha"
-                    placeholder="********"
                     value={userPassword}
                     onChange={(e) => setUserPassword(e.target.value)}
                 />
-                <ButtonComponent id="button" type="submit" value="Login" />
+                <ButtonComponent id="login-btn" type="submit" value="Login" />
                 <p className="text">
                     Esqueceu sua senha? Obtenha
-                    <Link to="/help">ajuda</Link> para entrar.
+                    <Link to="/help"> ajuda</Link> para entrar.
                 </p>
             </div>
         </form>

@@ -103,11 +103,13 @@ form.register-form {
     color: #464444;
     font-weight: 400;
     font-size: 0.75rem;
-    display: inline-block;
+    display: flex;
 }
 
 .calltoaction {
     color: #000000;
+    margin-left: 3px;
+    cursor: pointer;
     text-decoration: none;
     font-size: 0.75rem;
     font-weight: 600;
@@ -158,7 +160,7 @@ label {
     top: -2px;
 }
 
-.login-btn {
+#login-btn {
     display: inline-block;
     width: 100%;
     height: 43px;
@@ -171,7 +173,21 @@ label {
     transition: 0.3s;
 }
 
-.login-btn:hover {
+#register-btn {
+    display: inline-block;
+    width: 100%;
+    height: 43px;
+    background-color: #87974d;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    transition: 0.3s;
+}
+
+#login-btn:hover,
+#register-btn:hover {
     background-color: #a5bd51;
 }
 
@@ -184,9 +200,11 @@ label {
     color: #464444;
     font-weight: 600;
     transition: 0.3s;
+    text-decoration: none;
 }
 
 .text a:hover {
+    text-decoration: none;
     color: #87974d;
 }
 
@@ -268,7 +286,7 @@ main.register-mode .images {
 }
 
 .texts {
-    max-height: 2.2rem;
+    height: 2.2rem;
     overflow: hidden;
 }
 
@@ -404,4 +422,11 @@ main.register-mode .images {
     form {
         padding: 1rem 2rem 1.5rem;
     }
+}
+
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type="date"]:focus::-webkit-datetime-edit {
+    color: black !important;
 }
