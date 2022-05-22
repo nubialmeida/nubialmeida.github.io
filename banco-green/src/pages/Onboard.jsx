@@ -19,15 +19,5 @@ export default function Onboard() {
         setLoading(false);
     }, []);
 
-    return (
-        <>
-            {loading ? (
-                <Loading />
-            ) : (
-                <div>
-                    <OnboardComponent {...userInfo} />
-                </div>
-            )}
-        </>
-    );
+    return <>{loading ? <Loading /> : <OnboardComponent {...userInfo} />}</>;
 }

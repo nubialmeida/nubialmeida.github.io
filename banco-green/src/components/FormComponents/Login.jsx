@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import InputComponent from "../InputComponents/Input";
 import ButtonComponent from "../InputComponents/Button";
+import ASSETS from "../Assets";
 
 export default function LoginComponents(props) {
     const [userEmail, setUserEmail] = useState("");
@@ -15,10 +16,7 @@ export default function LoginComponents(props) {
     return (
         <form onSubmit={(e) => handleSubmit(e)} className="login-form">
             <div className="logo">
-                <img
-                    src={require("../../assets/images/leaf.png")}
-                    alt="green-logo"
-                />
+                <img src={ASSETS.IMAGES.leaf} alt="green-logo" />
                 <h4>Green</h4>
             </div>
 

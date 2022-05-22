@@ -2,6 +2,8 @@ import React from "react";
 import { CCarousel, CCarouselItem, CImage } from "@coreui/react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import ASSETS from "./Assets";
+
 export default function Carrousel() {
     function changeText(e) {
         const textSlide = document.querySelector(".text-group");
@@ -14,21 +16,21 @@ export default function Carrousel() {
                 <CCarouselItem>
                     <CImage
                         className="d-block w-100"
-                        src={require("../assets/images/piggy-bank.png")}
+                        src={ASSETS.IMAGES.piggy_bank}
                         alt="slide 1"
                     />
                 </CCarouselItem>
                 <CCarouselItem>
                     <CImage
                         className="d-block w-100"
-                        src={require("../assets/images/wallet.png")}
+                        src={ASSETS.IMAGES.wallet}
                         alt="slide 2"
                     />
                 </CCarouselItem>
                 <CCarouselItem>
                     <CImage
                         className="d-block w-100"
-                        src={require("../assets/images/img1.png")}
+                        src={ASSETS.IMAGES.globe}
                         alt="slide 3"
                     />
                 </CCarouselItem>

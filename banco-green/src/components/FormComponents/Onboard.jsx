@@ -1,17 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Icons from "../Icons";
 import Card from "../Card";
-import "../../styles/onboard.css";
+import "../../styles/onboard.scss";
+import TableHeader from "../Tables/Header";
+import TableLine from "../Tables/Body";
+import News from "../News";
 
-import logo from "../../assets/images/leaf.png";
-import icon1 from "../../assets/images/home.png";
-import icon2 from "../../assets/images/save-money.png";
-import icon3 from "../../assets/images/extract.png";
-import icon4 from "../../assets/images/transfer.png";
-import icon5 from "../../assets/images/card.png";
-import icon6 from "../../assets/images/help.png";
-import icon7 from "../../assets/images/user.png";
-import icon8 from "../../assets/images/search.png";
+import ASSETS from "../Assets";
 
 export default function OnboardComponent(props) {
     return (
@@ -22,43 +18,43 @@ export default function OnboardComponent(props) {
                 </div>
                 <ul>
                     <Icons
-                        icon={icon1}
+                        icon={ASSETS.IMAGES.home}
                         alt="inicio"
                         href="index.html"
                         text="Início"
                     />
                     <Icons
-                        icon={icon2}
+                        icon={ASSETS.IMAGES.save_money}
                         alt="saldo"
                         href="index.html"
                         text="Saldo"
                     />
                     <Icons
-                        icon={icon3}
+                        icon={ASSETS.IMAGES.extract}
                         alt="extrato"
                         href="index.html"
                         text="Extrato"
                     />
                     <Icons
-                        icon={icon4}
+                        icon={ASSETS.IMAGES.transfer}
                         alt="transferir"
                         href="index.html"
                         text="Saldo"
                     />
                     <Icons
-                        icon={icon5}
+                        icon={ASSETS.IMAGES.card}
                         alt="cartões"
                         href="index.html"
                         text="Cartões"
                     />
                     <Icons
-                        icon={icon6}
+                        icon={ASSETS.IMAGES.help}
                         alt="ajuda"
                         href="index.html"
                         text="Ajuda"
                     />
                     <Icons
-                        icon={icon7}
+                        icon={ASSETS.IMAGES.user}
                         alt="dados-pessoais"
                         href="index.html"
                         text="Dados Pessoais"
@@ -66,14 +62,14 @@ export default function OnboardComponent(props) {
                 </ul>
             </div>
 
-            <div className="container">
+            <div className="main">
                 <div className="header">
                     <div className="nav">
                         <div className="search">
                             <input type="text" placeholder="Pesquisa" />
                             <button type="submit">
                                 <img
-                                    src={icon8}
+                                    src={ASSETS.IMAGES.search}
                                     alt="pesquisa"
                                     className="icon-menu"
                                 />
@@ -81,9 +77,9 @@ export default function OnboardComponent(props) {
                         </div>
 
                         <div className="user">
-                            <a href="index.html" className="btn">
+                            <Link to="index.html" className="button">
                                 Sair
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -91,108 +87,97 @@ export default function OnboardComponent(props) {
                 <div className="content">
                     <div className="cards">
                         <Card
-                            title="Saldo"
+                            tittle="Saldo"
                             value="R$ 1.280,55"
-                            icon={icon2}
+                            icon={ASSETS.IMAGES.save_money}
                             alt="saldo"
                         />
                         <Card
-                            title="Extrato"
+                            tittle="Extrato"
                             value="Selecione o período"
-                            icon={icon3}
+                            icon={ASSETS.IMAGES.extract}
                             alt="saldo"
                         />
                         <Card
-                            title="Transferir"
+                            tittle="Transferir"
                             value="Clique aqui"
-                            icon={icon4}
+                            icon={ASSETS.IMAGES.transfer}
                             alt="saldo"
                         />
                         <Card
-                            title="Cartões"
+                            tittle="Cartões"
                             value="Saiba mais"
-                            icon={icon5}
+                            icon={ASSETS.IMAGES.card}
                             alt="saldo"
                         />
                     </div>
                     <div className="content-2">
                         <div className="recent-info">
                             <div className="tittle">
-                                <h2>Atividades Recentes</h2>
-                                <a href="index.html" className="btn">
+                                <div className="inner-tittle">
+                                    Atividades Recentes
+                                </div>
+                                <Link to="index.html" className="button">
                                     Ver Mais
-                                </a>
+                                </Link>
                             </div>
                             <table>
-                                <tr>
-                                    <th>Data</th>
-                                    <th>Lançamentos</th>
-                                    <th>Valor</th>
-                                    <th>Saldo</th>
-                                </tr>
-                                <tr>
-                                    <td>14/03/2021</td>
-                                    <td>Posto Ipiranga LTDA</td>
-                                    <td>R$ 80,00</td>
-                                    <td>R$ 1.250,33</td>
-                                </tr>
-
-                                <tr>
-                                    <td>14/03/2021</td>
-                                    <td>Posto Ipiranga LTDA</td>
-                                    <td>R$ 80,00</td>
-                                    <td>R$ 1.250,33</td>
-                                </tr>
-                                <tr>
-                                    <td>14/03/2021</td>
-                                    <td>Posto Ipiranga LTDA</td>
-                                    <td>R$ 80,00</td>
-                                    <td>R$ 1.250,33</td>
-                                </tr>
-                                <tr>
-                                    <td>14/03/2021</td>
-                                    <td>Posto Ipiranga LTDA</td>
-                                    <td>R$ 80,00</td>
-                                    <td>R$ 1.250,33</td>
-                                </tr>
-                                <tr>
-                                    <td>14/03/2021</td>
-                                    <td>Posto Ipiranga LTDA</td>
-                                    <td>R$ 80,00</td>
-                                    <td>R$ 1.250,33</td>
-                                </tr>
+                                <TableHeader />
+                                <tbody>
+                                    <TableLine
+                                        date="14/03/2021"
+                                        store="Posto Ipiranga LTDA"
+                                        value="R$ 80,00"
+                                        cash="R$ 1.250,33 "
+                                    />
+                                    <TableLine
+                                        date="14/03/2021"
+                                        store="Posto Ipiranga LTDA"
+                                        value="R$ 80,00"
+                                        cash="R$ 1.250,33 "
+                                    />
+                                    <TableLine
+                                        date="14/03/2021"
+                                        store="Posto Ipiranga LTDA"
+                                        value="R$ 80,00"
+                                        cash="R$ 1.250,33 "
+                                    />
+                                    <TableLine
+                                        date="14/03/2021"
+                                        store="Posto Ipiranga LTDA"
+                                        value="R$ 80,00"
+                                        cash="R$ 1.250,33 "
+                                    />
+                                    <TableLine
+                                        date="14/03/2021"
+                                        store="Posto Ipiranga LTDA"
+                                        value="R$ 80,00"
+                                        cash="R$ 1.250,33 "
+                                    />
+                                </tbody>
                             </table>
                         </div>
                         <div className="more-info">
                             <div className="tittle">
-                                <h2>Fique por dentro!</h2>
+                                <div className="inner-tittle">
+                                    Fique por dentro!
+                                </div>
                             </div>
                             <table>
-                                <tr>
-                                    <td>
-                                        <img src={logo} alt="logo-green" />
-                                    </td>
-                                    <td>
-                                        <a href="index.html">
-                                            Projeto verde. Saiba como ajudar!
-                                        </a>
-                                    </td>
-                                    {/* <td><img src={logo} alt="logo-green" /></td> */}
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <img src={logo} alt="logo-green" />
-                                    </td>
-                                    <td>
-                                        <a href="index.html">
-                                            Go paperless! Atualize suas
-                                            configurações em "Dados Pessoais"
-                                            para tornar sua conta 100% digital.
-                                        </a>
-                                    </td>
-                                    {/* <td><img src={logo} alt="logo-green" /></td> */}
-                                </tr>
+                                <tbody>
+                                    <News
+                                        img={ASSETS.IMAGES.hand_globe}
+                                        link="index.html"
+                                        title="Projeto verde. Saiba como ajudar!"
+                                    />
+                                    <News
+                                        img={ASSETS.IMAGES.pen}
+                                        link="index.html"
+                                        title='Go paperless! Atualize suas
+                                    configurações em "Dados Pessoais"
+                                    para tornar sua conta 100% digital.'
+                                    />
+                                </tbody>
                             </table>
                         </div>
                     </div>

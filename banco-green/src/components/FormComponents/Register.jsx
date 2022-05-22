@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import InputComponent from "../InputComponents/Input";
 import ButtonComponent from "../InputComponents/Button";
+import ASSETS from "../Assets";
 
 export default function RegisterComponents(props) {
     const [userName, setUserName] = useState("");
@@ -14,10 +15,7 @@ export default function RegisterComponents(props) {
     return (
         <form className="register-form">
             <div className="logo">
-                <img
-                    src={require("../../assets/images/leaf.png")}
-                    alt="green-logo"
-                />
+                <img src={ASSETS.IMAGES.leaf} alt="green-logo" />
                 <h3>Green</h3>
             </div>
 
@@ -74,7 +72,7 @@ export default function RegisterComponents(props) {
                 />
                 <p className="text">
                     Eu concordo com os
-                    <Link to="index.html"> Termos de Uso</Link>
+                    <Link to="/terms-of-use"> Termos de Uso</Link>
                 </p>
             </div>
         </form>
