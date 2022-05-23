@@ -7,17 +7,21 @@ import "../styles/home.scss";
 export default function Home() {
     const [registerMode, toggleRegisterMode] = useState(false);
     return (
-        <main className={registerMode ? "register-mode" : ""}>
-            <div className="main-box">
-                <div className="inner-box">
-                    <div className="forms">
-                        <Login function={() => toggleRegisterMode(true)} />
-                        <Register function={() => toggleRegisterMode(false)} />
-                    </div>
+        <div className="home-menu">
+            <main className={registerMode ? "register-mode" : ""}>
+                <div className="main-box">
+                    <div className="inner-box">
+                        <div className="forms">
+                            <Login function={() => toggleRegisterMode(true)} />
+                            <Register
+                                function={() => toggleRegisterMode(false)}
+                            />
+                        </div>
 
-                    <Carrousel />
+                        <Carrousel />
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     );
 }

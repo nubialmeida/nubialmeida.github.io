@@ -13,25 +13,27 @@ input {
     font-family: "Varela Round", sans-serif;
 }
 
-main {
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-    background-color: #d1e782;
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.home-menu {
+    main {
+        width: 100%;
+        min-height: 100vh;
+        overflow: hidden;
+        background-color: #d1e782;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.main-box {
-    position: relative;
-    width: 100%;
-    max-width: 1020px;
-    height: 640px;
-    background-color: #fff;
-    border-radius: 3.3rem;
-    box-shadow: 0 60px 40px -30px rgb(0, 0, 0, 0.27);
+    .main-box {
+        position: relative;
+        width: 100%;
+        max-width: 1020px;
+        height: 640px;
+        background-color: #fff;
+        border-radius: 3.3rem;
+        box-shadow: 0 60px 40px -30px rgb(0, 0, 0, 0.27);
+    }
 
     .inner-box {
         position: absolute;
@@ -207,26 +209,24 @@ main {
         color: #87974d;
     }
 
-    main.register-mode {
-        form.login-form {
-            opacity: 0;
-            pointer-events: none;
-        }
+    main.register-mode form.login-form {
+        opacity: 0;
+        pointer-events: none;
+    }
 
-        form.register-form {
-            opacity: 1;
-            pointer-events: all;
-        }
+    main.register-mode form.register-form {
+        opacity: 1;
+        pointer-events: all;
+    }
 
-        /* Slide mode settings */
+    /* Slide mode settings */
 
-        .forms {
-            left: 55%;
-        }
+    main.register-mode .forms {
+        left: 55%;
+    }
 
-        .images {
-            left: 0%;
-        }
+    main.register-mode .images {
+        left: 0%;
     }
 
     /* Images settings */
@@ -334,14 +334,12 @@ main {
             transform: translateX(100%);
         }
 
-        main.register-mode {
-            form.login-form {
-                transform: translateX(-100%);
-            }
+        main.register-mode form.login-form {
+            transform: translateX(-100%);
+        }
 
-            form.register-form {
-                transform: translateX(-0%);
-            }
+        main.register-mode form.register-form {
+            transform: translateX(-0%);
         }
 
         .images {

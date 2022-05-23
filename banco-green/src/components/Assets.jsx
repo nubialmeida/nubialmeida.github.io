@@ -15,20 +15,17 @@ const IMAGES = {
     transfer: require("../assets/images/transfer.png"),
     user: require("../assets/images/user.png"),
     wallet: require("../assets/images/wallet.png"),
+    back: require("../assets/images/back.png"),
 };
 
 const GIFS = {
     loading: require("../assets/gifs/loading.gif"),
-};
-
-const VIDEOS = {
-    error404: require("../assets/videos/error404.mp4"),
+    error404: require("../assets/gifs/error404.gif"),
 };
 
 const ASSETS = {
     IMAGES,
     GIFS,
-    VIDEOS,
 };
 
 export default ASSETS;
