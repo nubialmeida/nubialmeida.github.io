@@ -89,7 +89,7 @@ export default function OnboardComponent(props) {
                     <div className="cards">
                         <Card
                             tittle="Saldo"
-                            value={`R$ ${890}`}
+                            value={`R$ ${props.userBalance.toFixed(2)}`}
                             icon={ASSETS.IMAGES.save_money}
                             alt="saldo"
                         />
