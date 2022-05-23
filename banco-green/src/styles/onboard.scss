@@ -37,6 +37,13 @@
         font-size: 1.17em;
     }
 
+    .card-description.red {
+        color: rgba(214, 25, 25, 0.809);
+    }
+
+    .card-description.green {
+        color: rgba(69, 150, 49, 0.809);
+    }
     .button {
         border-radius: 8px;
         background-color: rgb(135, 151, 77);

@@ -10,6 +10,7 @@ import News from "../News";
 import ASSETS from "../Assets";
 
 export default function OnboardComponent(props) {
+    console.log(props);
     return (
         <div className="onboard">
             <div className="side-menu">
@@ -88,7 +89,7 @@ export default function OnboardComponent(props) {
                     <div className="cards">
                         <Card
                             tittle="Saldo"
-                            value="R$ 1.280,55"
+                            value={`R$ ${props.userBalance.toFixed(2)}`}
                             icon={ASSETS.IMAGES.save_money}
                             alt="saldo"
                         />

@@ -1,23 +1,29 @@
 import React, { useState, useEffect } from "react";
 import OnboardComponent from "../components/FormComponents/Onboard";
 import Loading from "../components/Loading";
-
-// const apiUrl = "http://localhost:3000";
+import * as API from "../api";
 
 export default function Onboard() {
-    const [userInfo, setUserInfo] = useState({});
+    const [userBalance, setUserBalance] = useState({});
+    const [userTransactions, setUserTransactions] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setUserInfo({ info: null });
-        /* async function getData() {
-            const data = await fetch(apiUrl);
-            const info = await data.json();
-            setUserInfo(info);
+        async function apiRequest() {
+            setUserBalance(await API.getBalance());
+            setUserTransactions(await API.getTransactions());
+            setLoading(false);
         }
-        getData(); */
-        setLoading(false);
+        apiRequest();
     }, []);
 
-    return <>{loading ? <Loading /> : <OnboardComponent {...userInfo} />}</>;
+    return (
+        <>
+            {loading ? (
+                <Loading />
+            ) : (
+                <OnboardComponent {...{ userBalance, userTransactions }} />
+            )}
+        </>
+    );
 }
