@@ -15,7 +15,7 @@ export default function Card(props) {
 
     return (
         <div className="card-item">
-            <Link to="index.html">
+            <Link to={props.href || ""}>
                 <div className="box">
                     <div className="card-tittle">{props.tittle}</div>
                     <div

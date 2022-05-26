@@ -5,10 +5,10 @@ export default function News(props) {
     return (
         <tr>
             <td>
-                <img src={props.img} alt="logo-green" />
-            </td>
-            <td>
-                <Link to={props.link}>{props.title}</Link>
+                <Link to={props.link} className="d-flex">
+                    <img src={props.img} alt="logo-green" />
+                    <div>{props.title}</div>
+                </Link>
             </td>
         </tr>
     );
