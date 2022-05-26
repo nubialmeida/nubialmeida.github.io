@@ -18,48 +18,27 @@ export default function OnboardComponent(props) {
                     <h1>Green</h1>
                 </div>
                 <ul>
-                    <Icons
-                        icon={ASSETS.IMAGES.home}
-                        alt="inicio"
-                        href="index.html"
-                        text="Início"
-                    />
-                    <Icons
-                        icon={ASSETS.IMAGES.save_money}
-                        alt="saldo"
-                        href="index.html"
-                        text="Saldo"
-                    />
-                    <Icons
-                        icon={ASSETS.IMAGES.extract}
-                        alt="extrato"
-                        href="index.html"
-                        text="Extrato"
-                    />
-                    <Icons
-                        icon={ASSETS.IMAGES.transfer}
-                        alt="transferir"
-                        href="index.html"
-                        text="Saldo"
-                    />
-                    <Icons
-                        icon={ASSETS.IMAGES.card}
-                        alt="cartões"
-                        href="index.html"
-                        text="Cartões"
-                    />
-                    <Icons
-                        icon={ASSETS.IMAGES.help}
-                        alt="ajuda"
-                        href="index.html"
-                        text="Ajuda"
-                    />
-                    <Icons
-                        icon={ASSETS.IMAGES.user}
-                        alt="dados-pessoais"
-                        href="index.html"
-                        text="Dados Pessoais"
-                    />
+                    {[
+                        [ASSETS.IMAGES.home, "/inicio", "Início"],
+                        [ASSETS.IMAGES.save_money, "/saldo", "Saldo"],
+                        [ASSETS.IMAGES.extract, "/extrato", "Extrato"],
+                        [ASSETS.IMAGES.transfer, "/transfer", "Transferir"],
+                        [ASSETS.IMAGES.card, "/cartoes", "Cartões"],
+                        [ASSETS.IMAGES.help, "/help", "Ajuda"],
+                        [
+                            ASSETS.IMAGES.user,
+                            "/dadosPessoais",
+                            "Dados pessoais",
+                        ],
+                    ].map(([icon, href, text]) => (
+                        <Icons
+                            key={text}
+                            icon={icon}
+                            alt={text}
+                            href={href}
+                            text={text}
+                        />
+                    ))}
                 </ul>
             </div>
 
@@ -93,23 +72,19 @@ export default function OnboardComponent(props) {
                             icon={ASSETS.IMAGES.save_money}
                             alt="saldo"
                         />
-                        <Card
-                            tittle="Extrato"
-                            value="Selecione o período"
-                            icon={ASSETS.IMAGES.extract}
-                            alt="saldo"
-                        />
+
                         <Card
                             tittle="Transferir"
                             value="Clique aqui"
                             icon={ASSETS.IMAGES.transfer}
-                            alt="saldo"
+                            alt="transferir"
+                            href="/transfer"
                         />
                         <Card
                             tittle="Cartões"
                             value="Saiba mais"
                             icon={ASSETS.IMAGES.card}
-                            alt="saldo"
+                            alt="cartões"
                         />
                     </div>
                     <div className="content-2">
@@ -125,36 +100,16 @@ export default function OnboardComponent(props) {
                             <table>
                                 <TableHeader />
                                 <tbody>
-                                    <TableLine
-                                        date="14/03/2021"
-                                        store="Posto Ipiranga LTDA"
-                                        value="R$ 80,00"
-                                        cash="R$ 1.250,33 "
-                                    />
-                                    <TableLine
-                                        date="14/03/2021"
-                                        store="Posto Ipiranga LTDA"
-                                        value="R$ 80,00"
-                                        cash="R$ 1.250,33 "
-                                    />
-                                    <TableLine
-                                        date="14/03/2021"
-                                        store="Posto Ipiranga LTDA"
-                                        value="R$ 80,00"
-                                        cash="R$ 1.250,33 "
-                                    />
-                                    <TableLine
-                                        date="14/03/2021"
-                                        store="Posto Ipiranga LTDA"
-                                        value="R$ 80,00"
-                                        cash="R$ 1.250,33 "
-                                    />
-                                    <TableLine
-                                        date="14/03/2021"
-                                        store="Posto Ipiranga LTDA"
-                                        value="R$ 80,00"
-                                        cash="R$ 1.250,33 "
-                                    />
+                                    {props.userTransactions.map(
+                                        ({ _id, tipo, valor, data }) => (
+                                            <TableLine
+                                                key={_id}
+                                                date={data}
+                                                store={tipo}
+                                                value={"R$ " + valor.toFixed(2)}
+                                            />
+                                        )
+                                    )}
                                 </tbody>
                             </table>
                         </div>
@@ -167,12 +122,14 @@ export default function OnboardComponent(props) {
                             <table>
                                 <tbody>
                                     <News
-                                        img={ASSETS.IMAGES.hand_globe}
+                                        img={ASSETS.IMAGES.heart}
+                                        alt="icone de coração e uma planta"
                                         link="index.html"
                                         title="Projeto verde. Saiba como ajudar!"
                                     />
                                     <News
-                                        img={ASSETS.IMAGES.pen}
+                                        img={ASSETS.IMAGES.user_config}
+                                        className="w-50"
                                         link="index.html"
                                         title='Go paperless! Atualize suas
                                     configurações em "Dados Pessoais"
