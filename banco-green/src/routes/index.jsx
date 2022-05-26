@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Onboard, Home, NotFound, TermsOfUse, Transfer } from "../pages";
+import { Onboard, Home, NotFound, TermsOfUse, Transfer, Help } from "../pages";
 
 export default function Router() {
     return (
@@ -9,6 +9,7 @@ export default function Router() {
             <Route path="/onboard" element={<Onboard />} />
             <Route path="/home" element={<Home />} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/help" element={<Help />} />
             <Route path="/transfer" element={<Transfer />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
