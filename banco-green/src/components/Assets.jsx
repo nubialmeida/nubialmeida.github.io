@@ -16,6 +16,12 @@ const IMAGES = {
     wallet: require("../assets/images/wallet.png"),
     back: require("../assets/images/back.png"),
     next: require("../assets/images/next.png"),
+    facebook: require("../assets/images/facebook.png"),
+    instagram: require("../assets/images/instagram.png"),
+    twitter: require("../assets/images/twitter.png"),
+    credit_card: require("../assets/images/credit-cards.png"),
+    sustentability: require("../assets/images/sustainability.png"),
+    growth: require("../assets/images/growth.png"),
 };
 
 const GIFS = {
