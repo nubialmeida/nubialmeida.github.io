@@ -1,0 +1,26 @@
+:root {
+    --scrollbarBG: rgb(135, 151, 77);
+    --thumbBG: rgba(165, 189, 81);
+}
+
+/*! Firefox */
+html {
+    scrollbar-color: var(scrollbarBG) var(--thumbBG);
+}
+
+/*! Other Browser */
+html::-webkit-scrollbar {
+    width: 11px;
+}
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+html::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+}
+html::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+}

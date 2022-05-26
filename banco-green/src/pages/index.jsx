@@ -1,9 +1,19 @@
 import Onboard from "./Onboard";
-import Home from "./Home";
+import Checkout from "./Checkout";
 import NotFound from "./NotFound";
 import TermsOfUse from "./TermsOfUse";
-import Help from "./help";
-import LandingPage from "./green-landing-page"
-import Cards from "./cards"
+import Transfer from "./Transfer";
+import Help from "./Help";
+import LandingPage from "./LandingPage";
+import Cards from "./Cards";
 
-export { Onboard, Home, NotFound, TermsOfUse, Help, LandingPage, Cards };
+export {
+    Onboard,
+    Checkout,
+    NotFound,
+    TermsOfUse,
+    Transfer,
+    Help,
+    LandingPage,
+    Cards,
+};

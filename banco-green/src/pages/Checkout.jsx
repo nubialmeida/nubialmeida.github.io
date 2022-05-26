@@ -4,7 +4,7 @@ import Register from "../components/FormComponents/Register";
 import Carrousel from "../components/Carrousel";
 import "../styles/home.scss";
 
-export default function Home() {
+export default function Checkout() {
     const [registerMode, toggleRegisterMode] = useState(false);
     return (
         <div className="home-menu">
