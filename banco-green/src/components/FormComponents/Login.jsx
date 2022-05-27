@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import InputComponent from "../InputComponents/Input";
 import ButtonComponent from "../InputComponents/Button";
 import ASSETS from "../Assets";
 
 export default function LoginComponents(props) {
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
-
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(userEmail, userPassword);
+        console.log(props.user.email, props.user.password);
     }
 
     return (
@@ -24,7 +21,7 @@ export default function LoginComponents(props) {
                 <h2>Bem-vindo!</h2>
                 <h6>
                     Não tem uma conta ainda?
-                    <div className="calltoaction" onClick={props.function}>
+                    <div className="calltoaction" onClick={props.changeScreen}>
                         Cadastrar
                     </div>
                 </h6>
@@ -33,14 +30,14 @@ export default function LoginComponents(props) {
                 <InputComponent
                     type="text"
                     description="Email"
-                    value={userEmail}
-                    onChange={(e) => setUserEmail(e.target.value)}
+                    value={props.user.email}
+                    onChange={props.setUserEmail}
                 />
                 <InputComponent
                     type="password"
                     description="Senha"
-                    value={userPassword}
-                    onChange={(e) => setUserPassword(e.target.value)}
+                    value={props.user.password}
+                    onChange={props.setUserPassword}
                 />
                 <ButtonComponent id="login-btn" type="submit" value="Login" />
                 <p className="text">

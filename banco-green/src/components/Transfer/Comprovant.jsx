@@ -2,9 +2,11 @@ import React from "react";
 import ASSETS from "../Assets";
 
 export default function Comprovant(props) {
+    console.log(props);
     const note = {
         value: props.valueToTransfer,
         destiny: props.destinyToTransfer,
+        data: props.lastTransaction,
     };
     return (
         <div className={`comprovant ${props.className ?? ""}`}>
@@ -17,7 +19,7 @@ export default function Comprovant(props) {
                 <h3 className="w-90">Pronto, enviamos sua transferência</h3>
                 <div>R$ {note.value}</div>
                 <div>Para {note.destiny}</div>
-                <div>Quando {props.time}</div>
+                <div>Quando {note.data}</div>
             </div>
         </div>
     );

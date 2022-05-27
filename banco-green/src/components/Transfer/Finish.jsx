@@ -5,7 +5,7 @@ export default function Finish(props) {
         <div className={`finish ${props.className ?? ""}`}>
             <h3> Transferindo</h3>
             <div className="transfering">
-                <div>R$ {props.valueToTransfer}</div>
+                <div className="reais">R$ {props.valueToTransfer}</div>
                 <div>Para {props.destinyToTransfer}</div>
             </div>
             <button className="btn" onClick={props.function}>

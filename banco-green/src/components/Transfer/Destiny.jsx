@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Destiny(props) {
-    console.log(props);
     return (
         <div className={`destiny ${props.className ?? ""}`}>
             <h3> Para quem você quer transferir R$ {props.valueToTransfer}</h3>
@@ -11,19 +10,27 @@ export default function Destiny(props) {
                     value={props.destinyToTransfer}
                     onChange={props.setDestinyToTransfer}
                 />
-                <select>
-                    <option key={"default"} value="---" selected disabled>
-                        ---Select CPF---
-                    </option>
-                    {props.allUsers.data.map(({ cpf }) => (
-                        <option
-                            key={cpf.replaceAll(/\D/g, "")}
-                            value={cpf.replaceAll(/\D/g, "")}
-                        >
-                            {cpf.replaceAll(/\D/g, "")}
+                {props.destinyToTransfer.length > 4 &&
+                props.destinyToTransfer.length < 11 ? (
+                    <select
+                        defaultValue={"default"}
+                        onChange={props.setDestinyToTransfer}
+                    >
+                        <option key={"default"} value="default" disabled>
+                            ---Selecione CPF---
                         </option>
-                    ))}
-                </select>
+                        {props.allUsers.data.map(({ cpf }) => {
+                            let userCpf = cpf.replaceAll(/\D/g, "");
+                            if (userCpf.includes(props.destinyToTransfer)) {
+                                return (
+                                    <option key={userCpf} value={userCpf}>
+                                        {userCpf}
+                                    </option>
+                                );
+                            } else return null;
+                        })}
+                    </select>
+                ) : null}
             </form>
             <button className="btn" onClick={props.function}>
                 Transferir para este contato
