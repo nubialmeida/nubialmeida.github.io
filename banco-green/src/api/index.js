@@ -71,5 +71,6 @@ export async function createTransaction(origin, destiny, value) {
 }
 
 export async function getCookie() {
-    return cookie;
+    let cookie = "fazerAmanhã";
+    return cookie ?? undefined;
 }

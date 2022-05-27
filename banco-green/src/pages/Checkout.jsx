@@ -12,6 +12,7 @@ export default function Checkout() {
         }
         apiRequest();
     }, []);
+
     const [registerMode, toggleRegisterMode] = useState(false);
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
@@ -20,16 +21,20 @@ export default function Checkout() {
     const [userCpf, setUserCpf] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
+    async function createAccount() {
+        const resp = await API.createAccount(
+            userName,
+            userEmail,
+            userPassword,
+            userPhone,
+            userDate,
+            userCpf
+        );
+        console.log(resp);
+    }
+
     return (
         <div className="home-menu">
-            <div className="position-fixed fixed-top">
-                <div>Nome {userName}</div>
-                <div>Email {userEmail}</div>
-                <div>Senha {userPassword}</div>
-                <div>CPF {userCpf}</div>
-                <div>Cel {userPhone}</div>
-                <div>Data {userDate}</div>
-            </div>
             <main className={registerMode ? "register-mode" : ""}>
                 <div className="main-box">
                     <div className="inner-box">
@@ -69,6 +74,7 @@ export default function Checkout() {
                                     setUserEmail(e.target.value)
                                 }
                                 changeScreen={() => toggleRegisterMode(false)}
+                                createAccount={() => createAccount()}
                             />
                         </div>
 

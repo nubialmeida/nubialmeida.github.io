@@ -35,6 +35,7 @@ export default function RegisterComponents(props) {
                     onChange={props.setUserEmail}
                 />
                 <InputComponent
+                    mask="(99) 99999-9999"
                     type="text"
                     description="Telefone"
                     value={props.user.phone}
@@ -60,8 +61,9 @@ export default function RegisterComponents(props) {
                 />
                 <ButtonComponent
                     id="register-btn"
-                    type="submit"
+                    type="button"
                     value="Cadastrar"
+                    onClick={props.createAccount}
                 />
                 <p className="text">
                     Eu concordo com os

@@ -8,6 +8,7 @@ export default function ButtonComponent(props) {
                 type={props.type}
                 value={props.value}
                 className="login-btn"
+                onClick={props.onClick}
             />
         </>
     );
