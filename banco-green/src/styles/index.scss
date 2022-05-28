@@ -1,11 +1,20 @@
 :root {
+<<<<<<< HEAD
     --light-green: rgba(165, 189, 81);
     --medium-green: rgb(135, 151, 77);
+=======
+    --scrollbarBG: rgb(135, 151, 77);
+    --thumbBG: rgba(165, 189, 81);
+>>>>>>> master
 }
 
 /*! Firefox */
 html {
+<<<<<<< HEAD
     scrollbar-color: var(scrollbarBG) var(--light-green);
+=======
+    scrollbar-color: var(scrollbarBG) var(--thumbBG);
+>>>>>>> master
 }
 
 /*! Other Browser */
@@ -14,6 +23,7 @@ html::-webkit-scrollbar {
 }
 html {
     scrollbar-width: thin;
+<<<<<<< HEAD
     scrollbar-color: var(--light-green) var(--medium-green);
 }
 html::-webkit-scrollbar-track {
@@ -29,4 +39,15 @@ button {
     border: none;
     outline: none;
     background: none;
+=======
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+html::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+}
+html::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+>>>>>>> master
 }

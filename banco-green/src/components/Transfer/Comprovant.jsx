@@ -21,7 +21,7 @@ export default function Comprovant(props) {
                 <h3 className="w-90">Pronto, enviamos sua transferência</h3>
                 <div>R$ {note.value}</div>
                 <div>Para {note.destiny}</div>
-                <div>{`${date.hours}:${date.minutes}:${date.seconds} de ${date.day}/${date.month}/${date.year}`}</div>
+                <div>{date}</div>
             </div>
         </div>
     );
