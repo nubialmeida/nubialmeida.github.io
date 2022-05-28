@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import InputMask from "react-input-mask";
 
 export default function InputComponent(props) {
-    const VALID_INPUT = /\w/g;
+    const VALID_INPUT = /[a-zA-Zà-ýÀ-Ý0-9]/g;
     const IS_ACTIVE = { TRUE: "active", FALSE: "" };
     const [active, setActive] = useState(IS_ACTIVE.FALSE);
 
@@ -22,7 +22,7 @@ export default function InputComponent(props) {
                 onBlur={
                     !VALID_INPUT.test(props.value)
                         ? () => setActive(IS_ACTIVE.FALSE)
-                        : console.log(props.value)
+                        : null
                 }
                 required
                 autoComplete="off"

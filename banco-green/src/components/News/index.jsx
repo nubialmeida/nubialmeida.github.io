@@ -5,8 +5,8 @@ export default function News(props) {
     return (
         <tr>
             <td>
-                <Link to={props.link} className="d-flex">
-                    <img src={props.img} alt="logo-green" />
+                <Link to={props.link} className="d-flex align-items-center">
+                    <img src={props.img} className="mx-2" alt="logo-green" />
                     <div>{props.title}</div>
                 </Link>
             </td>

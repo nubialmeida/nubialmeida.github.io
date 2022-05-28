@@ -49,6 +49,7 @@ export default function RegisterComponents(props) {
                 />
                 <InputComponent
                     type="text"
+                    mask="999.999.999-99"
                     description="CPF"
                     value={props.user.cpf}
                     onChange={props.setUserCpf}

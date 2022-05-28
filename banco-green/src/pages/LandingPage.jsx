@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/landing-page.scss";
 import ASSETS from "../components/Assets";
+import MoreInfo from "../components/MoreInfoLP";
 
 export default function LandingPage() {
+    const [modal, setModal] = useState(false);
+
     return (
         <div className="main-div">
+            {modal ? <MoreInfo setModal={() => setModal(false)} /> : null}
             <div className="circle"></div>
             <header>
                 <img className="logo" alt="logo" src={ASSETS.IMAGES.leaf} />
@@ -42,12 +46,13 @@ export default function LandingPage() {
                         árvores plantadas em áreas de reflorestamento! Aqui na
                         Green, o seu dinheiro é sempre verde!
                     </p>
-                    <button>Saiba Mais</button>
+
+                    <button onClick={() => setModal(true)}>Saiba Mais</button>
                 </div>
                 <div className="imgBox">
                     <img
                         className="sustentavel"
-                        alt="sustentabiliade"
+                        alt="sustentabilidade"
                         src={ASSETS.IMAGES.sustentability}
                     />
                 </div>
@@ -56,7 +61,7 @@ export default function LandingPage() {
             <ul className="thumb">
                 <li>
                     <img
-                        alt="sustentabiliade"
+                        alt="sustentabilidade"
                         src={ASSETS.IMAGES.credit_card}
                     />
                 </li>

@@ -22,6 +22,8 @@ const IMAGES = {
     credit_card: require("../assets/images/credit-cards.png"),
     sustentability: require("../assets/images/sustainability.png"),
     growth: require("../assets/images/growth.png"),
+    hexagon: require("../assets/images/hexagon.png"),
+    group: require("../assets/images/group.jpg"),
 };
 
 const GIFS = {
