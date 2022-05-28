@@ -4,10 +4,9 @@ export default function TableHeader() {
     return (
         <thead>
             <tr>
-                <th>Data</th>
+                <th className="text-center">Data</th>
                 <th>Lançamentos</th>
                 <th>Valor</th>
-                <th>Saldo</th>
             </tr>
         </thead>
     );

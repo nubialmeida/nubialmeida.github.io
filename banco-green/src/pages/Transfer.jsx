@@ -9,9 +9,17 @@ import * as API from "../api";
 import Loading from "../components/Loading";
 
 export default function Transfer() {
+    const [stage, setStage] = useState(1);
+
     const [loading, setLoading] = useState(true);
     const [userBalance, setUserBalance] = useState({});
     const [allUsers, setAllUsers] = useState([]);
+    const [valueToTransfer, setValueToTransfer] = useState("");
+    const [destinyToTransfer, setDestinyToTransfer] = useState("");
+    const [lastTransaction, setLastTransaction] = useState("");
+
+    const navigate = useNavigate();
+
     useEffect(() => {
         async function apiRequest() {
             setAllUsers(await API.getAllAccounts());
@@ -20,10 +28,6 @@ export default function Transfer() {
         }
         apiRequest();
     }, []);
-    const navigate = useNavigate();
-    const [stage, setStage] = useState(1);
-    const [valueToTransfer, setValueToTransfer] = useState();
-    const [destinyToTransfer, setDestinyToTransfer] = useState("");
 
     return (
         <>
@@ -31,7 +35,7 @@ export default function Transfer() {
                 <Loading />
             ) : (
                 <div className="transfer">
-                    {stage}
+                    {stage /* Para mudar de página sem fazer tudo*/}
                     <button
                         onClick={() => setStage(stage === 4 ? 1 : stage + 1)}
                     >
@@ -58,12 +62,23 @@ export default function Transfer() {
                     />
                     <Finish
                         className={stage === 3 ? "" : "hidden"}
-                        function={() => setStage(4)}
+                        function={async () => {
+                            setStage(4);
+                            await API.createTransaction(
+                                "12345678910", // colocar cpf do usuario que esta logado aqui
+                                destinyToTransfer,
+                                Number(valueToTransfer)
+                            );
+                            setLastTransaction(
+                                await API.getLastTransactions("12345678910")
+                            ); // aqui tbm
+                        }}
                         valueToTransfer={valueToTransfer}
                         destinyToTransfer={destinyToTransfer}
                     />
                     <Comprovant
                         className={stage === 4 ? "" : "hidden"}
+                        lastTransaction={lastTransaction}
                         valueToTransfer={valueToTransfer}
                         destinyToTransfer={destinyToTransfer}
                         setDefault={() => {

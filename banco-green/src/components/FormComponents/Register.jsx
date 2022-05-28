@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import InputComponent from "../InputComponents/Input";
 import ButtonComponent from "../InputComponents/Button";
 import ASSETS from "../Assets";
 
 export default function RegisterComponents(props) {
-    const [userName, setUserName] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-    const [userPhone, setUserPhone] = useState("");
-    const [userDate, setUserDate] = useState("");
-    const [userCpf, setUserCpf] = useState("");
-    const [userPassword, setUserPassword] = useState("");
-
     return (
         <form className="register-form">
             <div className="logo">
@@ -23,7 +16,7 @@ export default function RegisterComponents(props) {
                 <h2>Cadastre-se</h2>
                 <h6>
                     Já é cliente?
-                    <div className="calltoaction" onClick={props.function}>
+                    <div className="calltoaction" onClick={props.changeScreen}>
                         Entrar
                     </div>
                 </h6>
@@ -32,43 +25,46 @@ export default function RegisterComponents(props) {
                 <InputComponent
                     type="text"
                     description="Nome"
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
+                    value={props.user.name}
+                    onChange={props.setUserName}
                 />
                 <InputComponent
                     type="text"
                     description="Email"
-                    value={userEmail}
-                    onChange={(e) => setUserEmail(e.target.value)}
+                    value={props.user.email}
+                    onChange={props.setUserEmail}
                 />
                 <InputComponent
+                    mask="(99) 99999-9999"
                     type="text"
                     description="Telefone"
-                    value={userPhone}
-                    onChange={(e) => setUserPhone(e.target.value)}
+                    value={props.user.phone}
+                    onChange={props.setUserPhone}
                 />
                 <InputComponent
                     type="date"
                     description="Data de Nascimento"
-                    value={userDate}
-                    onChange={(e) => setUserDate(e.target.value)}
+                    value={props.user.date}
+                    onChange={props.setUserDate}
                 />
                 <InputComponent
                     type="text"
+                    mask="999.999.999-99"
                     description="CPF"
-                    value={userCpf}
-                    onChange={(e) => setUserCpf(e.target.value)}
+                    value={props.user.cpf}
+                    onChange={props.setUserCpf}
                 />
                 <InputComponent
                     type="password"
                     description="Senha"
-                    value={userPassword}
-                    onChange={(e) => setUserPassword(e.target.value)}
+                    value={props.user.password}
+                    onChange={props.setUserPassword}
                 />
                 <ButtonComponent
                     id="register-btn"
-                    type="submit"
+                    type="button"
                     value="Cadastrar"
+                    onClick={props.createAccount}
                 />
                 <p className="text">
                     Eu concordo com os

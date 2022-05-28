@@ -1,11 +1,15 @@
 import React from "react";
 import ASSETS from "../Assets";
+import { formatDate } from "../../functions/format";
 
 export default function Comprovant(props) {
     const note = {
         value: props.valueToTransfer,
         destiny: props.destinyToTransfer,
     };
+
+    const date = formatDate(props.lastTransaction);
+
     return (
         <div className={`comprovant ${props.className ?? ""}`}>
             <img
@@ -17,7 +21,7 @@ export default function Comprovant(props) {
                 <h3 className="w-90">Pronto, enviamos sua transferência</h3>
                 <div>R$ {note.value}</div>
                 <div>Para {note.destiny}</div>
-                <div>Quando {props.time}</div>
+                <div>{date}</div>
             </div>
         </div>
     );

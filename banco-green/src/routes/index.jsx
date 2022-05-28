@@ -9,19 +9,21 @@ import {
     Help,
     LandingPage,
     Cards,
+    Profile,
 } from "../pages";
 
 export default function Router() {
     return (
         <Routes>
             <Route path="/" element={<Navigate to="/landing-page" />} />
-            <Route path="/onboard" element={<Onboard />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/terms-of-use" element={<TermsOfUse />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/transfer" element={<Transfer />} />
             <Route path="/landing-page" element={<LandingPage />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/transfer" element={<Transfer />} />
+            <Route path="/onboard" element={<Onboard />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/cards" element={<Cards />} />
+            <Route path="/help" element={<Help />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

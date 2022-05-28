@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/landing-page.scss";
 import ASSETS from "../components/Assets";
+import MoreInfo from "../components/MoreInfoLP";
 
 export default function LandingPage() {
+    const [modal, setModal] = useState(false);
+
     return (
         <div className="main-div">
+            {modal ? <MoreInfo setModal={() => setModal(false)} /> : null}
             <div className="circle"></div>
             <header>
                 <img className="logo" alt="logo" src={ASSETS.IMAGES.leaf} />
@@ -42,12 +46,13 @@ export default function LandingPage() {
                         árvores plantadas em áreas de reflorestamento! Aqui na
                         Green, o seu dinheiro é sempre verde!
                     </p>
-                    <button>Saiba Mais</button>
+
+                    <button onClick={() => setModal(true)}>Saiba Mais</button>
                 </div>
                 <div className="imgBox">
                     <img
                         className="sustentavel"
-                        alt="sustentabiliade"
+                        alt="sustentabilidade"
                         src={ASSETS.IMAGES.sustentability}
                     />
                 </div>
@@ -56,7 +61,7 @@ export default function LandingPage() {
             <ul className="thumb">
                 <li>
                     <img
-                        alt="sustentabiliade"
+                        alt="sustentabilidade"
                         src={ASSETS.IMAGES.credit_card}
                     />
                 </li>
@@ -70,13 +75,31 @@ export default function LandingPage() {
 
             <ul className="social">
                 <li>
-                    <img alt="facebook" src={ASSETS.IMAGES.facebook} />
+                    <a
+                        href="https://facebook.com"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        <img alt="facebook" src={ASSETS.IMAGES.facebook} />
+                    </a>
                 </li>
                 <li>
-                    <img alt="instagram" src={ASSETS.IMAGES.instagram} />
+                    <a
+                        href="https://instagram.com"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        <img alt="instagram" src={ASSETS.IMAGES.instagram} />
+                    </a>
                 </li>
                 <li>
-                    <img alt="twitter" src={ASSETS.IMAGES.twitter} />
+                    <a
+                        href="https://twitter.com"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        <img alt="twitter" src={ASSETS.IMAGES.twitter} />
+                    </a>
                 </li>
             </ul>
         </div>

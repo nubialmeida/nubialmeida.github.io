@@ -93,6 +93,12 @@
     .destiny {
         form {
             width: 50%;
+            position: relative;
+            select {
+                bottom: 0;
+                width: 100%;
+                position: absolute;
+            }
         }
     }
 

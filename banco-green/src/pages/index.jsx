@@ -1,19 +1,21 @@
-import Onboard from "./Onboard";
+import LandingPage from "./LandingPage";
+import TermsOfUse from "./TermsOfUse";
 import Checkout from "./Checkout";
 import NotFound from "./NotFound";
-import TermsOfUse from "./TermsOfUse";
 import Transfer from "./Transfer";
-import Help from "./Help";
-import LandingPage from "./LandingPage";
+import Onboard from "./Onboard";
+import Profile from "./Profile";
 import Cards from "./Cards";
+import Help from "./Help";
 
 export {
-    Onboard,
-    Checkout,
-    NotFound,
-    TermsOfUse,
-    Transfer,
-    Help,
     LandingPage,
+    TermsOfUse,
+    Profile,
+    NotFound,
+    Checkout,
+    Transfer,
+    Onboard,
     Cards,
+    Help,
 };
