@@ -41,7 +41,6 @@ export default function MoreInfo(props) {
                     deslocam para um local que sofre por falta de árvores devido
                     às causas humanas ou naturais.
                 </p>
-
                 <p>
                     <strong>Os serviços são: </strong>
                     <ul>
@@ -53,7 +52,10 @@ export default function MoreInfo(props) {
                     </ul>
                 </p>
                 <h4>Invista em quem cuida do planeta</h4>
-
+                Voluntários vencedores Nossos grupos Voluntários foram um dos
+                vencedores do Prêmio Viva Voluntário, realizado pelo Governo
+                Federal, em 2018, com apoio da Organização das Nações Unidas
+                para o Desenvolvimento (PNUD).
                 <button className="btn">
                     {" "}
                     Clique aqui para ser um voluntário
