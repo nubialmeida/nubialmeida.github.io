@@ -14,30 +14,28 @@ const PATHS = {
     LOGIN: "/login",
 };
 
-const TEST_USER_CPF = "12345678910";
-
 export async function getAllAccounts() {
     const resp = await axios.get(apiUrl + PATHS.GET.ALL_ACCOUNTS);
-    return resp;
+    return resp.data;
 }
 
-export async function getBalance(CPF = TEST_USER_CPF) {
+export async function getBalance(CPF) {
     const resp = await axios.get(apiUrl + PATHS.GET.BALANCE + CPF);
     return resp.data.saldo;
 }
 
-export async function getTransactions(CPF = TEST_USER_CPF) {
+export async function getTransactions(CPF) {
     const resp = await axios.get(apiUrl + PATHS.GET.TRANSACTIONS + CPF);
     return resp.data.operacoes;
 }
 
-export async function getLastTransactions(CPF = TEST_USER_CPF) {
+export async function getLastTransactions(CPF) {
     const resp = await axios.get(apiUrl + PATHS.GET.TRANSACTIONS + CPF);
 
     return resp.data.operacoes[resp.data.operacoes.length - 1].data;
 }
 
-export async function login(email, password) {
+export async function loginAccount(email, password) {
     const obj = {
         email,
         senha: password,
@@ -68,9 +66,4 @@ export async function createTransaction(origin, destiny, value) {
     };
     const resp = await axios.post(apiUrl + PATHS.CREATE.TRANSACTION, obj);
     return resp;
-}
-
-export async function getCookie() {
-    let cookie = "fazerAmanhã";
-    return cookie ?? undefined;
 }

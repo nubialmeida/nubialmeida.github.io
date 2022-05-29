@@ -9,14 +9,17 @@ import Card from "../Card";
 import News from "../News";
 import { formatDate } from "../../functions/format";
 import "../../styles/onboard.scss";
+import * as Cookie from "../../api/cookie";
 
 export default function OnboardComponent(props) {
     const [showTransactions, setShowTransactions] = useState(false);
     const navigate = useNavigate();
 
-    function renderTheFirstTen() {
+    function renderTheFirstFive() {
         let resp = [];
-        for (let i = 0; i < 5; i++) {
+        let len = props.userTransactions.length;
+        let limit = len < 5 ? len : 5;
+        for (let i = 0; i < limit; i++) {
             resp.push(props.userTransactions[i]);
         }
         return resp.map(({ _id, tipo, valor, data }) => {
@@ -34,6 +37,7 @@ export default function OnboardComponent(props) {
 
     function logout() {
         if (window.confirm("Tem certeza que deseja sair?")) {
+            Cookie.eraseCookies();
             navigate("/checkout");
         }
     }
@@ -42,7 +46,7 @@ export default function OnboardComponent(props) {
         <div className="onboard">
             {showTransactions ? (
                 <Transactions
-                    transactions={props.userTransactions}
+                    transactions={props?.userTransactions}
                     closeTransactions={() => setShowTransactions(false)}
                 />
             ) : (
@@ -167,7 +171,7 @@ export default function OnboardComponent(props) {
                                     </div>
                                     <table>
                                         <TableHeader />
-                                        <tbody>{renderTheFirstTen()}</tbody>
+                                        <tbody>{renderTheFirstFive()}</tbody>
                                     </table>
                                 </div>
                                 <div className="more-info">

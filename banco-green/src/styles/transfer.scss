@@ -12,6 +12,13 @@
     align-items: center;
     justify-content: center;
 
+    span {
+        color: #444;
+        b {
+            color: #87974d;
+        }
+    }
+
     textarea,
     input,
     select {
@@ -53,6 +60,25 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    .back {
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        cursor: pointer;
+    }
+
+    .close {
+        position: absolute;
+        top: 3.3rem;
+        right: 3.3rem;
+        font-weight: 700;
+        width: fit-content;
+        height: fit-content;
+        cursor: pointer;
     }
 
     .btn {

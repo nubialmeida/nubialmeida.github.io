@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import ASSETS from "../Assets";
 import { formatDate } from "../../functions/format";
 
 export default function Comprovant(props) {
+    const navigate = useNavigate();
     const note = {
         value: props.valueToTransfer,
         destiny: props.destinyToTransfer,
@@ -12,6 +14,9 @@ export default function Comprovant(props) {
 
     return (
         <div className={`comprovant ${props.className ?? ""}`}>
+            <span className="close" onClick={() => navigate("/onboard")}>
+                X
+            </span>
             <img
                 src={ASSETS.GIFS.send}
                 className="send"
@@ -19,8 +24,17 @@ export default function Comprovant(props) {
             />
             <div>
                 <h3 className="w-90">Pronto, enviamos sua transferência</h3>
-                <div>R$ {note.value}</div>
-                <div>Para {note.destiny}</div>
+                <div>
+                    <span>
+                        <b>R$ {note.value}</b>
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        <b>Para</b>
+                    </span>
+                    {" " + note.destiny}
+                </div>
                 <div>{date}</div>
             </div>
         </div>

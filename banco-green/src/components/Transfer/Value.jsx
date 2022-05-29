@@ -7,7 +7,7 @@ export default function Value(props) {
 
     return (
         <div className={`value ${props.className ?? ""}`}>
-            {props.balance.toFixed(2) === 0 ? ( // mudar depois para < 0
+            {props.balance.toFixed(2) < 0 ? (
                 <div className="cant-transfer">
                     <div>VOCÊ ESTÁ COM O SALDO NEGATIVO</div>
                     <button
@@ -20,9 +20,12 @@ export default function Value(props) {
             ) : (
                 <>
                     <h3>Qual é o valor da transferência?</h3>
-
+                    <div className="close" onClick={() => navigate("/onboard")}>
+                        X
+                    </div>
                     <span>
-                        Saldo disponível em conta R$ {props.balance.toFixed(2)}
+                        Saldo disponível em conta{" "}
+                        <b>R$ {props.balance.toFixed(2)}</b>
                     </span>
                     <form className="d-flex flex-row align-items-center">
                         <div className="fs-3">R$</div>

@@ -64,13 +64,31 @@ export default function Cards() {
 
             <ul className="social">
                 <li>
-                    <img alt="facebook" src={ASSETS.IMAGES.facebook} />
+                    <a
+                        href="https://facebook.com"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        <img alt="facebook" src={ASSETS.IMAGES.facebook} />
+                    </a>
                 </li>
                 <li>
-                    <img alt="instagram" src={ASSETS.IMAGES.instagram} />
+                    <a
+                        href="https://instagram.com"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        <img alt="instagram" src={ASSETS.IMAGES.instagram} />
+                    </a>
                 </li>
                 <li>
-                    <img alt="twitter" src={ASSETS.IMAGES.twitter} />
+                    <a
+                        href="https://twitter.com"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        <img alt="twitter" src={ASSETS.IMAGES.twitter} />
+                    </a>
                 </li>
             </ul>
         </div>
