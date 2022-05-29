@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/landing-page.scss";
 import ASSETS from "../components/Assets";
 
-export default function LandingPage() {
+export default function Cards() {
     return (
         <div className="main-div">
             <div className="circle"></div>
