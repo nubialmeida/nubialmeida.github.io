@@ -1,18 +1,29 @@
 import React from "react";
 import "../styles/help.scss";
+import ASSETS from "../components/Assets";
 
 export default function Help() {
     return (
         <div className="help-container">
+            <div className="chat">
+                <span>Chat</span>
+                <img src={ASSETS.IMAGES.chat} alt="chat" />
+            </div>
             <div className="wrapper">
                 <button className="btn">
                     <strong>Como navegar pela plataforma Green?</strong>
                 </button>
 
                 <div className="content">
-                    <ul>
+                    <ul className="social">
                         <li>
-                            <button>Como faço meu cadastro?</button>
+                            <a
+                                href="https://facebook.com"
+                                rel="noreferrer"
+                                target="_blank"
+                            >
+                                Como faço meu cadastro?
+                            </a>
                         </li>
                         <li>
                             <button>
@@ -42,7 +53,13 @@ export default function Help() {
                             </button>
                         </li>
                         <li>
-                            <button>Envio internacional, como fazer?</button>
+                            <a
+                                href="https://facebook.com"
+                                rel="noreferrer"
+                                target="_blank"
+                            >
+                                Envio internacional, como fazer?
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -55,14 +72,27 @@ export default function Help() {
                 <div className="content">
                     <ul>
                         <li>
-                            <button>Nos envie um e-mail!</button>
+                            <a
+                                href="https://www.google.com/intl/pt-BR/gmail/about/"
+                                rel="noreferrer"
+                                target="_blank"
+                            >
+                                Nos envie um e-mail!
+                            </a>
                         </li>
                         <li>
                             <button>Entre em contato por telefone!</button>
                         </li>
                         <li>
-                            <button>Chat e WhatsApp!</button>
+                            <a
+                                href="https://whatsapp.com"
+                                rel="noreferrer"
+                                target="_blank"
+                            >
+                                WhatsApp!
+                            </a>
                         </li>
+                        <li>E também atendemos pelo chat!</li>
                     </ul>
                 </div>
             </div>

@@ -6,6 +6,7 @@ import Finish from "../components/Transfer/Finish";
 import Comprovant from "../components/Transfer/Comprovant";
 import "../styles/transfer.scss";
 import * as API from "../api";
+import * as Cookie from "../api/cookie";
 import Loading from "../components/Loading";
 
 export default function Transfer() {
@@ -22,12 +23,17 @@ export default function Transfer() {
 
     useEffect(() => {
         async function apiRequest() {
-            setAllUsers(await API.getAllAccounts());
-            setUserBalance(await API.getBalance());
+            let cpf = Cookie.getCookie("cpf");
+            if (cpf === undefined) {
+                navigate("/checkout");
+            } else {
+                setAllUsers(await API.getAllAccounts());
+                setUserBalance(await API.getBalance(cpf));
+            }
             setLoading(false);
         }
         apiRequest();
-    }, []);
+    }, [navigate]);
 
     return (
         <>
@@ -35,15 +41,17 @@ export default function Transfer() {
                 <Loading />
             ) : (
                 <div className="transfer">
-                    {stage /* Para mudar de página sem fazer tudo*/}
-                    <button
-                        onClick={() => setStage(stage === 4 ? 1 : stage + 1)}
-                    >
-                        blabla
-                    </button>
                     <Value
                         className={stage === 1 ? "" : "hidden"}
-                        function={() => setStage(2)}
+                        function={() => {
+                            if (!valueToTransfer)
+                                alert(
+                                    "É preciso um valor mínimo para fazer a transferencia"
+                                );
+                            else if (valueToTransfer < 0)
+                                alert("É preciso transferir um valor positivo");
+                            else setStage(2);
+                        }}
                         balance={userBalance}
                         valueToTransfer={valueToTransfer}
                         setValueToTransfer={(e) =>
@@ -52,27 +60,46 @@ export default function Transfer() {
                     />
                     <Destiny
                         className={stage === 2 ? "" : "hidden"}
-                        function={() => setStage(3)}
+                        function={() => {
+                            if (
+                                !allUsers
+                                    .map(
+                                        ({ cpf }) =>
+                                            cpf.replaceAll(/\D/g, "") ===
+                                            destinyToTransfer.replaceAll(
+                                                /\D/g,
+                                                ""
+                                            )
+                                    )
+                                    .some((el) => el)
+                            )
+                                alert("Nenhum usuário válido encontrado");
+                            else setStage(3);
+                        }}
+                        backStage={() => setStage(1)}
                         allUsers={allUsers}
                         valueToTransfer={valueToTransfer}
                         destinyToTransfer={destinyToTransfer}
-                        setDestinyToTransfer={(e) =>
-                            setDestinyToTransfer(e.target.value)
-                        }
+                        setDestinyToTransfer={(e) => {
+                            setDestinyToTransfer(e.target.value);
+                        }}
                     />
                     <Finish
                         className={stage === 3 ? "" : "hidden"}
                         function={async () => {
                             setStage(4);
                             await API.createTransaction(
-                                "12345678910", // colocar cpf do usuario que esta logado aqui
+                                Cookie.getCookie("cpf"),
                                 destinyToTransfer,
                                 Number(valueToTransfer)
                             );
                             setLastTransaction(
-                                await API.getLastTransactions("12345678910")
-                            ); // aqui tbm
+                                await API.getLastTransactions(
+                                    Cookie.getCookie("cpf")
+                                )
+                            );
                         }}
+                        backStage={() => setStage(2)}
                         valueToTransfer={valueToTransfer}
                         destinyToTransfer={destinyToTransfer}
                     />

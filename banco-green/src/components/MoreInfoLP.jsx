@@ -1,14 +1,15 @@
 import React from "react";
 import ASSETS from "./Assets";
+
 import "../styles/more-infoLP.scss";
 
 export default function MoreInfo(props) {
     return (
         <div className="more-info-container">
-            <div className="close" onClick={props.setModal}>
-                X
-            </div>
             <div className="more-info">
+                <div className="close" onClick={props.setModal}>
+                    X
+                </div>
                 <div className="more-info-title">
                     <img
                         src={ASSETS.IMAGES.hexagon}
@@ -52,10 +53,10 @@ export default function MoreInfo(props) {
                     </ul>
                 </p>
                 <h4>Invista em quem cuida do planeta</h4>
-                Voluntários vencedores Nossos grupos Voluntários foram um dos
-                vencedores do Prêmio Viva Voluntário, realizado pelo Governo
-                Federal, em 2018, com apoio da Organização das Nações Unidas
-                para o Desenvolvimento (PNUD).
+                <mark>Voluntários Green:</mark> Nossos grupos Voluntários foram
+                um dos vencedores do Prêmio Viva Voluntário, realizado pelo
+                Governo Federal, em 2018, com apoio da Organização das Nações
+                Unidas para o Desenvolvimento (PNUD).
                 <button className="btn">
                     {" "}
                     Clique aqui para ser um voluntário

@@ -10,6 +10,7 @@ import {
     LandingPage,
     Cards,
     Profile,
+    ProblemsLogin,
 } from "../pages";
 
 export default function Router() {
@@ -24,6 +25,7 @@ export default function Router() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/cards" element={<Cards />} />
             <Route path="/help" element={<Help />} />
+            <Route path="/problems-login" element={<ProblemsLogin />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );

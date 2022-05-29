@@ -9,15 +9,20 @@
     // opacity: 0.5;
     padding: 60px 160px;
 
-    .close {
-        cursor: pointer;
-    }
     .more-info {
+        position: relative;
         background-color: #fff;
         height: 90%;
         padding: 40px;
         border-radius: 3.3rem;
         box-shadow: 0 60px 40px -30px rgb(0, 0, 0, 0.27);
+    }
+    .close {
+        position: absolute;
+        top: 3.3rem;
+        right: 3.3rem;
+        font-weight: 700;
+        cursor: pointer;
     }
 
     .more-info-title {

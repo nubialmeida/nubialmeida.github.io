@@ -7,6 +7,7 @@ import Onboard from "./Onboard";
 import Profile from "./Profile";
 import Cards from "./Cards";
 import Help from "./Help";
+import ProblemsLogin from "./ProblemsLogin";
 
 export {
     LandingPage,
@@ -18,4 +19,5 @@ export {
     Onboard,
     Cards,
     Help,
+    ProblemsLogin,
 };
